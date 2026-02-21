@@ -4,6 +4,7 @@ import { StatsBar } from './components/StatsBar';
 import { TypingArea } from './components/TypingArea';
 import { ResultModal } from './components/ResultModal';
 import { HistoryPanel } from './components/HistoryPanel';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 import type { TestSettings, HistoryRecord } from './types/index';
 import { Keyboard, Command, Volume2 } from 'lucide-react';
 import useSound from 'use-sound';
@@ -16,6 +17,7 @@ export default function App() {
     timeLimit: 30,
     wordLimit: 25,
     language: 'english',
+    theme: 'carbon',
   });
 
   const {
@@ -34,11 +36,25 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [play] = useSound(KEY_SOUND, { volume: 0.5 });
 
-  // Load history
+  // Load history and settings
   useEffect(() => {
-    const saved = localStorage.getItem('typingHistory');
-    if (saved) setHistory(JSON.parse(saved));
+    const savedHistory = localStorage.getItem('typingHistory');
+    if (savedHistory) setHistory(JSON.parse(savedHistory));
+
+    const savedSettings = localStorage.getItem('typingSettings');
+    if (savedSettings) {
+      const parsed = JSON.parse(savedSettings);
+      setSettings(prev => ({ ...prev, ...parsed }));
+    }
   }, []);
+
+  // Save settings when they change
+  useEffect(() => {
+    localStorage.setItem('typingSettings', JSON.stringify(settings));
+
+    // Update theme attribute on html element
+    document.documentElement.setAttribute('data-theme', settings.theme);
+  }, [settings]);
 
   // Save result to history
   useEffect(() => {
@@ -101,6 +117,10 @@ export default function App() {
         </div>
 
         <div className="flex items-center gap-4 text-sub">
+          <ThemeSwitcher
+            currentTheme={settings.theme}
+            onThemeChange={(themeId) => setSettings(prev => ({ ...prev, theme: themeId }))}
+          />
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
             className={`p-2 rounded hover:text-text transition-colors ${soundEnabled ? 'text-main' : ''}`}

@@ -79,32 +79,32 @@ export const StatsGraph = ({ data }: StatsGraphProps) => {
                         type="monotone"
                         dataKey="wpm"
                         name="wpm"
-                        stroke="#a3e635"
+                        stroke="var(--main)"
                         strokeWidth={2}
                         dot={false}
-                        activeDot={{ r: 4, stroke: '#a3e635', strokeWidth: 2, fill: '#323437' }}
+                        activeDot={{ r: 4, stroke: 'var(--main)', strokeWidth: 2, fill: 'var(--background)' }}
                     />
                     <Line
                         yAxisId="left"
                         type="monotone"
                         dataKey="rawWpm"
                         name="raw"
-                        stroke="#646669"
+                        stroke="var(--sub)"
                         strokeWidth={2}
                         dot={false}
                         strokeDasharray="5 5"
-                        activeDot={{ r: 4, stroke: '#646669', strokeWidth: 2, fill: '#323437' }}
+                        activeDot={{ r: 4, stroke: 'var(--sub)', strokeWidth: 2, fill: 'var(--background)' }}
                     />
                     <Line
                         yAxisId="right"
                         type="monotone"
                         dataKey="accuracy"
                         name="acc"
-                        stroke="#d1d0c5"
+                        stroke="var(--text)"
                         strokeWidth={1}
                         dot={false}
                         opacity={0.5}
-                        activeDot={{ r: 4, stroke: '#d1d0c5', strokeWidth: 2, fill: '#323437' }}
+                        activeDot={{ r: 4, stroke: 'var(--text)', strokeWidth: 2, fill: 'var(--background)' }}
                     />
                 </LineChart>
             </ResponsiveContainer>
