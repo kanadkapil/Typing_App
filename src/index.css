@@ -79,6 +79,26 @@
   --error-extra: #a05252;
 }
 
+[data-theme='cyberpunk'] {
+  --background: #111111;
+  --main: #fcee0a;
+  --caret: #fcee0a;
+  --sub: #303030;
+  --text: #00f0ff;
+  --error: #ff003c;
+  --error-extra: #990024;
+}
+
+[data-theme='brutalist'] {
+  --background: #f0f0f0;
+  --main: #ff1212;
+  --caret: #ff1212;
+  --sub: #1a1a1a;
+  --text: #1a1a1a;
+  --error: #0000ff;
+  --error-extra: #0000a0;
+}
+
 [data-theme='carbon'] {
   --background: #323437;
   --main: #a3e635;

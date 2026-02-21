@@ -29,6 +29,8 @@ export const THEMES: Theme[] = [
   { id: 'forest', name: 'Forest Edge', colors: { background: '#1a2f23', main: '#bbf7d0', sub: '#365314', text: '#f0fdf4' } },
   { id: 'sunset', name: 'Sunset Retro', colors: { background: '#2d1b2d', main: '#fbbf24', sub: '#4c1d95', text: '#fff7ed' } },
   { id: 'matcha', name: 'Matcha Latte', colors: { background: '#414d44', main: '#98ad8d', sub: '#2b332d', text: '#ebf2e6' } },
+  { id: 'cyberpunk', name: 'Cyberpunk', colors: { background: '#111111', main: '#fcee0a', sub: '#303030', text: '#00f0ff' } },
+  { id: 'brutalist', name: 'Neo Brutalist', colors: { background: '#f0f0f0', main: '#ff0000', sub: '#1a1a1a', text: '#1a1a1a' } },
 ];
 
 export interface HistoryRecord {
