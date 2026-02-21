@@ -1,3 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: #323437;
+  --color-main: #a3e635;
+  --color-caret: #a3e635;
+  --color-sub: #646669;
+  --color-text: #d1d0c5;
+  --color-error: #ca4754;
+  --color-error-extra: #7e2a33;
+  --color-colorful-error: #ca4754;
+  --color-colorful-error-extra: #7e2a33;
+
+  --font-mono: "Roboto Mono", monospace;
+
+  --animate-caret-blink: blink 1s infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1 }
+    50% { opacity: 0 }
+  }
+}
+
+:root {
+  --background: #323437;
+  --main: #a3e635;
+  --caret: #a3e635;
+  --sub: #646669;
+  --text: #d1d0c5;
+  --error: #ca4754;
+  --error-extra: #7e2a33;
+  --colorful-error: #ca4754;
+  --colorful-error-extra: #7e2a33;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sub);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text);
+}
+
+#root {
+  min-height: 100vh;
+}
